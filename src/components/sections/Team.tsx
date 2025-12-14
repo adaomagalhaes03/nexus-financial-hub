@@ -1,31 +1,43 @@
 import { motion } from "framer-motion";
 import { Linkedin, Mail } from "lucide-react";
+import arqveritusLogo from "@/assets/arqveritus-logo.jpg";
+import globalauditLogo from "@/assets/globalaudit-logo.jpg";
 
 const team = [
   {
-    name: "Ruth Matias",
-    role: "Directora Geral",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
-  },
-  {
-    name: "João Manuel",
-    role: "Director Financeiro",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-  },
-  {
-    name: "Carlos André",
-    role: "Director de Consultoria",
+    name: "Bruno Januário",
+    role: "Director Geral",
+    company: "ArqVeritus OnliCapital",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    logo: arqveritusLogo,
   },
   {
-    name: "Ana Paulo",
-    role: "Coordenadora de Formação",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
+    name: "Joelson Silva",
+    role: "Departamento de Consultoria, Formação e Inovação",
+    company: "Prospera Angola",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+    logo: null,
   },
   {
-    name: "Miguel Domingos",
-    role: "Responsável de Auditoria",
+    name: "Elizeth Felipe",
+    role: "Departamento de Desenvolvimento de Negócios",
+    company: "ArqVeritus OnliCapital",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
+    logo: arqveritusLogo,
+  },
+  {
+    name: "Patrício Domingos",
+    role: "Departamento Fiscal e Tributário",
+    company: "",
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face",
+    logo: null,
+  },
+  {
+    name: "Milena Lucas",
+    role: "Departamento de Planeamento Estratégico",
+    company: "GlobalAudit",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
+    logo: globalauditLogo,
   },
 ];
 
@@ -88,6 +100,14 @@ export const Team = () => {
               </div>
               <h3 className="text-lg font-semibold text-foreground">{member.name}</h3>
               <p className="text-sm text-primary mt-1">{member.role}</p>
+              {member.company && (
+                <div className="mt-2 flex items-center justify-center gap-2">
+                  {member.logo && (
+                    <img src={member.logo} alt={member.company} className="w-6 h-6 object-contain rounded" />
+                  )}
+                  <span className="text-xs text-muted-foreground">{member.company}</span>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
