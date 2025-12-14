@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, X } from "lucide-react";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { toast } from "@/hooks/use-toast";
 
 const plans = [
   {
@@ -46,6 +52,31 @@ const plans = [
 ];
 
 export const Plans = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    message: "",
+  });
+
+  const handleOpenModal = (planName: string) => {
+    setSelectedPlan(planName);
+    setIsModalOpen(true);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsModalOpen(false);
+    setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+    toast({
+      title: "Proposta enviada com sucesso!",
+      description: "Entraremos em contacto brevemente.",
+    });
+  };
+
   return (
     <section id="planos" className="section-padding bg-secondary/30">
       <div className="container-custom">
@@ -104,6 +135,7 @@ export const Plans = () => {
               </ul>
 
               <button
+                onClick={() => handleOpenModal(plan.name)}
                 className={`w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all duration-300 ${
                   plan.highlighted
                     ? "bg-primary-foreground text-primary hover:opacity-90"
@@ -117,6 +149,79 @@ export const Plans = () => {
           ))}
         </div>
       </div>
+
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="sm:max-w-[500px] bg-card border-border">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-foreground">
+              Solicitar Proposta - <span className="text-primary">{selectedPlan}</span>
+            </DialogTitle>
+          </DialogHeader>
+          <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+            <div className="space-y-2">
+              <Label htmlFor="name" className="text-foreground">Nome Completo</Label>
+              <Input
+                id="name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                placeholder="Seu nome"
+                required
+                className="bg-background border-border"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-foreground">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                placeholder="seu@email.com"
+                required
+                className="bg-background border-border"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="phone" className="text-foreground">Telefone</Label>
+              <Input
+                id="phone"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                placeholder="+244 XXX XXX XXX"
+                required
+                className="bg-background border-border"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="company" className="text-foreground">Empresa</Label>
+              <Input
+                id="company"
+                value={formData.company}
+                onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                placeholder="Nome da sua empresa"
+                className="bg-background border-border"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="message" className="text-foreground">Mensagem (opcional)</Label>
+              <Textarea
+                id="message"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                placeholder="Descreva suas necessidades..."
+                rows={3}
+                className="bg-background border-border"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full btn-primary py-3 rounded-lg font-semibold"
+            >
+              Enviar Proposta
+            </button>
+          </form>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
