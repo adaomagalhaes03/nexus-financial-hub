@@ -17,7 +17,7 @@ const team = [
     logo: arqveritusLogo,
   },
   {
-    name: "Joelson Silva",
+    name: "Jelson Silva",
     role: "Departamento de Consultoria, Formação e Inovação",
     company: "Prospera Angola",
     image: teamJoelson,

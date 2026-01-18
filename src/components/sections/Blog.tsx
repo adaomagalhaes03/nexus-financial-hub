@@ -7,7 +7,7 @@ const articles = [
     title: "Como Melhorar a Gestão de Fluxo de Caixa na Sua Empresa",
     excerpt: "Descubra as melhores práticas para otimizar o fluxo de caixa e garantir a saúde financeira do seu negócio.",
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop",
-    author: "Ruth Matias",
+    author: "Cintia Vidal",
     readTime: "5 min",
   },
   {
@@ -15,7 +15,7 @@ const articles = [
     title: "Novas Alterações Fiscais em Angola para 2024",
     excerpt: "Fique a par das principais mudanças na legislação fiscal que podem impactar a sua empresa.",
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop",
-    author: "João Manuel",
+    author: "Jelson Silva",
     readTime: "7 min",
   },
   {
@@ -23,7 +23,7 @@ const articles = [
     title: "Estratégias de Crescimento Sustentável para PMEs",
     excerpt: "Aprenda a expandir o seu negócio de forma sustentável e com riscos controlados.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-    author: "Carlos André",
+    author: "Milena Lucas",
     readTime: "6 min",
   },
 ];
