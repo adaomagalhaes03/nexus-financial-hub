@@ -2,41 +2,46 @@ import { motion } from "framer-motion";
 import { Linkedin, Mail } from "lucide-react";
 import arqveritusLogo from "@/assets/arqveritus-logo.jpg";
 import globalauditLogo from "@/assets/globalaudit-logo.jpg";
+import teamCintia from "@/assets/team-cintia.jpg";
+import teamGuilhermina from "@/assets/team-guilhermina.jpg";
+import teamJoelson from "@/assets/team-joelson.jpg";
+import teamPaula from "@/assets/team-paula.jpg";
+import teamMilena from "@/assets/team-milena.jpg";
 
 const team = [
   {
-    name: "Bruno Januário",
+    name: "Cintia Vidal",
     role: "Director Geral",
     company: "ArqVeritus OnliCapital",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    image: teamCintia,
     logo: arqveritusLogo,
   },
   {
     name: "Joelson Silva",
     role: "Departamento de Consultoria, Formação e Inovação",
     company: "Prospera Angola",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+    image: teamJoelson,
     logo: null,
   },
   {
-    name: "Elizeth Felipe",
+    name: "Guilhermina",
     role: "Departamento de Desenvolvimento de Negócios",
     company: "ArqVeritus OnliCapital",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
+    image: teamGuilhermina,
     logo: arqveritusLogo,
   },
   {
-    name: "Patrício Domingos",
+    name: "Paula",
     role: "Departamento Fiscal e Tributário",
     company: "",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face",
+    image: teamPaula,
     logo: null,
   },
   {
     name: "Milena Lucas",
     role: "Departamento de Planeamento Estratégico",
     company: "GlobalAudit",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
+    image: teamMilena,
     logo: globalauditLogo,
   },
 ];
